@@ -1,0 +1,46 @@
+{% load static %}
+{% block content %}
+
+
+<div class="bg-white w-full h-full flex items-center justify-center m-0 p-0 graficos" id="view_upload_files">
+  <form class="bg-white p-8 rounded shadow-md w-2/3 mx-auto h-3/3" style="max-height: 60vh" id="form_upload_files"
+    method="post" enctype="multipart/form-data" action="{% url 'subir_archivos' %}">
+    {% csrf_token %}
+    <!-- El valor "600px" puede ser ajustado según tus necesidades -->
+
+    <h2 class="text-2xl font-bold mb-4" style="font-weight: bold; color: #8cb8f5">
+      Seleccionar Archivos
+    </h2>
+
+    <!-- Input oculto para seleccionar archivos -->
+    <input type="file" id="fileInput" accept=".mp4, .wav, .jpg, .jpeg, .png, .gif, .xlsx, .xls" multiple
+      style="display: none" class="bg-dark" />
+
+    <!-- Cuadro para arrastrar archivos -->
+    <label for="fileInput" class="border-dashed border-2 border-gray-300 p-4 mb-4 relative cursor-pointer">
+      <div class="text-gray-500 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <!-- Puedes personalizar la apariencia según tus necesidades -->
+      </div>
+
+      <p id="text_upload_files">
+        Arrastra y suelta tus archivos aquí o haz clic para seleccionar
+      </p>
+      <!-- Imagen centrada y grande dentro del cuadro -->
+      <img src="{% static 'img/upload_files.jpg' %}" alt="Imagen" id="form_upload_files_img" />
+    </label>
+
+    <!-- Contenedor con estilo para la lista de archivos cargados -->
+    <div id="container_files_uploaded">
+      <ul id="fileList" class="list-disc pl-4 mb-4"></ul>
+    </div>
+
+    <!-- Botón para subir archivos -->
+    <button type="button" id="uploadButton" data-url="{% url 'subir_archivos' %}"
+      class="bg-blue-500 text-white py-2 px-4 w-full rounded hover:bg-blue-700" onclick="enviarArchivos()">
+      Subir Archivos
+    </button>
+
+  </form>
+  <!-- En tu archivo HTML -->
+</div>
+{% endblock %}

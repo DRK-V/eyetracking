@@ -1,0 +1,22 @@
+<!--reportes -->
+{% load static %}
+{% block content %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+
+<div class="w-full h-full flex flex-wrap items-start justify-start" id="modal_reportes" style="display: none;">
+    <div id="cabecera-reporte">
+        <div id="container-imprimir">
+            <button id="botonImprimir" onclick="descargarPDF()"></button>
+        </div>
+    </div>
+    <div id="container-no-data-report">
+        <h1>No has enviado graficos a reporte</h1>
+        <div class="container_img_no_report"></div>
+    </div>
+</div>
+
+<!-- Imagen oculta -->
+<img src="{% static 'img/logo-sena.png' %}" alt="Imagen" id="imagenOculta" style="display: none;" />
+<script>
+</script>
+{% endblock %}

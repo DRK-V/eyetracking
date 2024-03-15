@@ -1,0 +1,157 @@
+.login-container {
+  position: relative;
+  top: 0;
+  width: 100%;
+  padding: 20px;
+  height: auto;
+  min-height: calc(100vh);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom,
+      var(--bg-gradiend-login),
+      var(--bg-gradiend-login2));
+  overflow: hidden;
+  background-image: url('../../../static/img/monturas.jpeg');
+  background-size: 60%;
+  object-fit: cover;
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+/*Login*/
+.login-container>div {
+  top: 8%;
+  left: 26%;
+  width: 30%;
+  height: 100%;
+  position: relative;
+}
+
+@media (min-width:1200px) {
+  #body-login {
+    overflow-y: hidden;
+    max-height: 100vh;
+  }
+}
+
+@media (max-width: 1200px) {
+  .login-container>div {
+    left: 0;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-container {
+    height: auto;
+  }
+}
+
+/*fin de login*/
+.full-form {
+  width: 100%;
+  height: 66vh;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 2%;
+  background-color: #211f1f;
+}
+
+#formulario_login {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 3%;
+}
+
+.main-container-form {
+  width: auto;
+  height: auto;
+  display: flex;
+}
+
+/*icon of the sesion*/
+#icon_sesion {
+  max-width: 10%;
+  height: auto;
+}
+
+/*input*/
+#contrasena {
+  background-color: transparent;
+  border: none;
+  width: 50%;
+  border-bottom: 1px solid white;
+  margin: 1em;
+  border-radius: 0;
+}
+
+#correo {
+  background-color: transparent;
+  border: none;
+  width: 50%;
+  border-bottom: 1px solid white;
+  margin: 1em;
+  border-radius: 0;
+}
+
+#correo:focus {
+  color: whitesmoke;
+}
+
+.bloque_login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+/*cambio de color de sugerencia de los input*/
+/* Para navegadores web basados en WebKit, como Chrome y Safari */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px rgba(255, 255, 255, 0) inset !important;
+  /* Puedes ajustar el color blanco según tus necesidades */
+  transition: background-color 5000s ease-in-out 0s;
+  /* Agrega una transición para asegurar la persistencia del color */
+  color: white;
+}
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: white; /* Color del texto */
+    -webkit-box-shadow: 0 0 0 1000px black inset; /* Fondo */
+}
+
+/* Para navegadores web basados en Blink, como Microsoft Edge */
+input:-ms-input-placeholder {
+  color: white !important;
+  background-color: transparent !important;
+  /* Agrega !important para prioridad */
+}
+
+/* Para navegadores web basados en Gecko, como Firefox */
+input {
+  filter: none !important;
+  /* Agrega !important para prioridad */
+  color: white;
+}
+
+::placeholder {
+  color: white;
+}
+
+.login_title {
+  font-size: 30px;
+}

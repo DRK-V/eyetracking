@@ -1,0 +1,81 @@
+{% load static %}
+{% block content %}
+
+{% if rutas_imagenes %}
+<div class="w-full md:w-1/2 xl:w-1/2 p-6" id="img_container">
+    <div class="class=" w-full h-full flex flex-wrap items-start justify-start" id="main_container_img">
+        <div class="imagen-detallada-container" id="imagen_detallada_container">
+            <span class="cerrar-imagen-detallada" onclick="cerrarImagenDetallada()">&times;</span>
+            <img src="" alt="" id="imagen_detallada">
+        </div>
+
+        {% if rutas_imagenes %}
+        {% with primera_ruta=rutas_imagenes.0.ruta primera_nombre=rutas_imagenes.0.nombre_imagen %}
+        <p id="text_name_image">{{primera_nombre}}</p>
+        <img src="{{ primera_ruta }}" alt="{{ primera_nombre }}" id="imagen_superior">
+        {% endwith %}
+
+        <div class="contianer_img">
+            <div id="gallery_img">
+                {% for ruta_imagen in rutas_imagenes %}
+                {% with ruta=ruta_imagen.ruta nombre=ruta_imagen.nombre_imagen %}
+                <div class="card_i_a">
+                    <img src="{{ ruta }}" alt="{{ nombre }}" class="imagen_miniatura">
+                </div>
+                {% endwith %}
+                {% endfor %}
+            </div>
+        </div>
+
+        {% else %}
+        <p style="text-align: center;">No hay imágenes disponibles.</p>
+        <img src="{% static 'img/theres_not_image.jpg' %}" alt="not found" id="imagen_superior_not_found">
+        {% endif %}
+
+    </div>
+</div>
+{% endif %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let imagenSuperior = document.getElementById('imagen_superior');
+        let imagenDetalladaContainer = document.getElementById('imagen_detallada_container');
+        let imagenDetallada = document.getElementById('imagen_detallada');
+        let miniaturas = document.querySelectorAll('.imagen_miniatura');
+        let nombre_imagen = document.querySelector('#text_name_image');
+
+
+
+        miniaturas.forEach(function (miniatura) {
+            miniatura.addEventListener('click', function (e) {
+
+                miniaturas.forEach(function (miniatura) {
+                    miniatura.style.border = 'none';
+                });
+                nombre_imagen.innerHTML = ''
+                console.log(e.target.alt)
+                nombre_imagen.innerHTML = e.target.alt
+
+                // Establecer el nuevo src
+                let nuevaRuta = miniatura.src;
+                imagenSuperior.src = nuevaRuta;
+
+                miniatura.style.border = '2px solid red';
+            });
+        });
+
+        imagenSuperior.addEventListener('click', function (e) {
+            url = e.target.src
+            imagenDetalladaContainer.style.display = 'flex';
+            imagenDetallada.src = url;
+        });
+
+        // Función para cerrar la versión detallada
+        window.cerrarImagenDetallada = function () {
+            imagenDetalladaContainer.style.display = 'none';
+        };
+    });
+
+</script>
+
+
+{% endblock %}

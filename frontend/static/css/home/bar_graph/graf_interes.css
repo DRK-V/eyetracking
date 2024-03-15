@@ -1,0 +1,56 @@
+#resumen-container {
+  margin-top: 20px;
+}
+#grafico-barras,
+#grafico-barras-impacto {
+  padding: 1em;
+}
+#resumen-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#resumen-container thead {
+  background-color: #f2f2f2;
+}
+
+#icon-reporte-interes:hover{
+  animation: rotate-icon-report .1s alternate forwards ease-in;
+}
+
+#resumen-container th,
+td {
+  /* border: 1px solid #ddd; */
+  padding: 8px;
+  text-align: left;
+}
+
+#resumen-container th {
+  background-color: #4caf50;
+  color: white;
+}
+
+.container-select > label {
+  font-size: 0.8em;
+}
+
+#resumen-container-impacto table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#resumen-container-impacto thead {
+  background-color: #f2f2f2;
+}
+
+#resumen-container-impacto th,
+td {
+  /* border: 1px solid #ddd; */
+  padding: 8px;
+  text-align: left;
+}
+
+#resumen-container-impacto th {
+  background-color: #4caf50;
+  color: white;
+}

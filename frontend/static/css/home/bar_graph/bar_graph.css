@@ -1,0 +1,143 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 60vh;
+  min-width: 43%;
+  max-width: 48%;
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+#showSummaryButton {
+  margin-top: 10px;
+}
+
+#btn_resumen_interes , #btn_resumen_impacto{
+  position: relative;
+  left: 10%;
+  width: auto;
+  min-width: 80%;
+  height: 5vh;
+  background-color:#4caf4f88;
+  color: white;
+  margin: 1em;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  align-items: center;
+  transition: .2s;
+}
+/* icono no visible, ojo cerrado */
+.icon_visible{
+  display: flex;
+}
+.icon_no_visible{
+  display: none;
+}
+
+#icon-reporte-impacto:hover {
+  animation: rotate-icon-report .1s alternate forwards ease-in;
+}
+
+#summaryContainer,
+#generalSummaryContainer,
+#genderSummaryContainer {
+  margin-top: 10px;
+  text-align: left;
+  /* Alinea el texto del resumen a la izquierda */
+}
+
+
+/* Estilos para la tabla de resumen general */
+#generalSummaryContainer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#generalSummaryContainer th,
+#generalSummaryContainer td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#generalSummaryContainer th {
+  background-color: #f2f2f2;
+}
+
+#generalSummaryContainer td:first-child {
+  font-weight: bold;
+}
+
+#generalSummaryContainer p {
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+
+#generalSummaryContainer table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+
+/* Estilos para el resumen */
+#summaryContainer {
+  margin-top: 20px;
+}
+
+#summaryContainer p {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#summaryContainer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#summaryContainer li {
+  margin-bottom: 5px;
+}
+
+
+/* Estilos para el resumen por género */
+#genderSummaryContainer {
+  margin-top: 20px;
+}
+
+#genderSummaryContainer p {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#genderSummaryContainer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#genderSummaryContainer li {
+  margin-bottom: 5px;
+}
+
+
+@media (max-width:1200px) {
+  .container {
+    position: relative;
+    min-width: 80%;
+    left: 10%;
+  }
+}
+
+@media (max-width:770px) {
+  .container {
+    max-width: none;
+    min-width: 90%;
+    left: 0;
+  }
+}

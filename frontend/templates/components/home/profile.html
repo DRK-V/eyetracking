@@ -1,0 +1,85 @@
+{% load static %} {% block content %}
+<!-- <link rel="stylesheet" href="{% static 'css/home/videos_modal/videos_modal.css' %}"> -->
+
+<head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'css/profile/profile.css' %}"
+  />
+</head>
+
+<div
+  class="prinst_cubo w-full h-full flex flex-wrap items-start justify-start"
+  id="profile_sesion"
+  style="display: none"
+>
+  <div class="structure">
+    <div class="p_photo">
+      <div class="photo_usu">
+        <img style="object-fit: contain;" src="../../../static/img/usuario_img.png" alt="" />
+      </div>
+    </div>
+    <form action="" class="formu_p">
+      <div class="title_profile">Informacion de la cuenta</div>
+      <div class="structure_form">
+        <div class="p_1">
+          <label for="">Nombre completo</label>
+          <input
+            id="name"
+            class="in_put"
+            type="text"
+            placeholder="Nombre"
+            value="{{ user_info.1 }}"
+          />
+        </div>
+        <div class="p_1">
+          <label for="">Apellido completo</label>
+          <input
+            id="apellido"
+            class="in_put"
+            type="text"
+            placeholder="Apellido"
+            value="{{user_info.2}}"
+          />
+        </div>
+        <div class="p_1">
+          <label for="">Correo</label>
+          <input
+            id="correo"
+            class="in_put"
+            type="email"
+            placeholder="Correo@gmail.com"
+            value="{{user_info.4}}"
+          />
+        </div>
+        <div class="p_1">
+          <label for="">Contraseña</label>
+          <input
+            id="contrasena"
+            class="in_put"
+            type="password"
+            placeholder="Contraseña"
+            value="{{ user_info.5 }}"
+          />
+        </div>
+        <div class="p_1">
+          <label for="">Rol</label>
+          <input
+            id="rol"
+            class="in_put"
+            type="text"
+            disabled
+            placeholder="Rol"
+            value="{{ user_info.6 }}"
+          />
+        </div>
+      </div>
+      <div class="struc_boton">
+        <button type="button" class="boton_profile">Actualizar</button>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="{% static 'js/profile/profile.js' %}"></script>
+{% endblock %}

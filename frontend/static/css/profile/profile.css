@@ -1,0 +1,100 @@
+/*cuerco de formulario*/
+.structure {
+  top: 6%;
+  width: 68%;
+  height: 81%;
+  display: flex;
+  padding: 1em;
+  position: relative;
+  border-radius: 1em;
+  background-color: white;
+}
+
+/*configuraciones del div pricipal*/
+.prinst_cubo {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+
+/*foto de perfil*/
+.photo_usu {
+  top: 3%;
+  width: 68%;
+  height: 23%;
+  display: flex;
+  position: relative;
+  padding: 2%;
+  clip-path: circle();
+  background-color: rgb(204, 198, 198);
+}
+
+.p_photo {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+/*formulario*/
+.title_profile {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  position: relative;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  color: black;
+}
+
+.p_1 {
+  top: 4%;
+  width: 77%;
+  height: 17%;
+  color: black;
+  padding: 4%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+
+.structure_form {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  position: relative;
+  padding: 1%;
+  flex-direction: column;
+}
+
+.formu_p {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+
+/*input*/
+
+.in_put {
+  background-color: #8080803b;
+  border-radius: 1em;
+  padding: 1%;
+  padding-left: 3%;
+}
+
+/*boton de actualizar perfil*/
+.boton_profile {
+  background-color: #fe5b29;
+  width: 21%;
+}
+
+.struc_boton {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: relative;
+  padding-left: 6%;
+
+}

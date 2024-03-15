@@ -1,0 +1,287 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Eye Tracking</title>
+  <meta name="author" content="name" />
+  <meta name="description" content="description here" />
+  <meta name="keywords" content="keywords,here" />
+  <link rel="shortcut icon" href="{% static 'img/eye_icon.png' %}" type="image/x-icon" />
+  <link rel="stylesheet" href="{% static 'css/main/main.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/home/home.css' %}" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" />
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  <link rel="stylesheet" href="{% static 'css/home/create_project_modal.css' %}" />
+  <!--ESTILOS CREAR PROYECTO-->
+  <link rel="stylesheet" href="{% static 'css/home/views_home.css' %}" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/home/bar_graph/bar_graph.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/home/bar_graph/graf_interes.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/home/reportes/reportes.css' %}" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Agrega esta línea a tu HTML -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
+  <!--estilso de toast-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+  <!--ESTILOS ACTIVAR DESACTIVAR OPCIONES DEL MENU-->
+  <link rel="stylesheet" href="{% static 'css/home/form_upload/form_upload.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/home/video/video.css' %}" />
+  <!--ESTILOS REPRODUCTOR DE VIDEO-->
+  <link rel="stylesheet" href="{% static 'css/home/filters_menu.css' %}" />
+  <!--ESTILOS REPRODUCTOR DE VIDEO-->
+  <link rel="stylesheet" href="{% static 'css/home/image/image_aa.css'%}" />
+  <!--ESTILOS GUARDAR IMAGEN-->
+  <!--ESTILOS FORMULARIO SUBIR ARCHIVOS-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Afacad&display=swap" />
+
+  <!-- ESTILOS DE GRAFICO EN LINEA -->
+  <link rel="stylesheet" href="{% static 'css/home/linea_graph/linea_graph.css' %}" />
+  <!--ESTILOS REPRODUCTOR DE VIDEO-->
+
+  <!--Replace with your tailwind.css once created-->
+  <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet" />
+  <!--Totally optional :) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"
+    integrity="sha256-xKeoJ50pzbUGkpQxDYHD7o7hxe0LaOGeguUidbq6vis=" crossorigin="anonymous"></script>
+  <style>
+    #myDropdown {
+      width: 12vw;
+    }
+
+    @media (max-width: 942px) {
+      #myDropdown {
+        width: 15vw;
+      }
+    }
+
+    @media (max-width: 745px) {
+      #myDropdown {
+        width: 22vw;
+      }
+    }
+
+    @media (max-width: 510px) {
+      #myDropdown {
+        width: 30vw;
+      }
+    }
+
+    @media (max-width: 375px) {
+      #myDropdown {
+        width: 0vw;
+      }
+    }
+  </style>
+</head>
+
+<body class="menu font-sans leading-normal tracking-normal mt-12" ;" style="height: auto;overflow: hidden;">
+  {% include 'components/home/create_project.html' %}<!--MODAL DE CREAR PROYECTO-->
+  {% include 'components/home/list_proyects.html' %}<!--MENU DE FILTROS-->
+  <header>
+    <!--Nav-->
+    <nav aria-label="menu nav" class="menu pt-2 md:pt-1 pb-1 px-1 mt-0 h-auto fixed w-full z-20 top-0">
+      <div class="flex flex-wrap items-center menu">
+        <div class="flex items-center md:w-1/3 justify-center md:justify-start text-white pl-4">
+          <a href="#" aria-label="Home" class="flex items-center">
+            <img width="6%" height="50%" src="{% static 'img/eye_icon.png' %}" alt="" srcset="" />
+            <span id="span1" class="text-xl pl-2 white_text" style="font-size: .8em;color: rgb(133, 133, 133);">
+              Sistema de Automatizacion de Analisis de Datos <span id="span2"
+                style="color: white;letter-spacing:.1em;">EYE
+                TRACKING</span>
+            </span>
+          </a>
+        </div>
+
+        <div class="flex flex-1 md:w-1/3 justify-center md:justify-start white_text px-2"></div>
+
+        <div class="flex w-full pt-2 content-center justify-between md:w-1/3 md:justify-end menu">
+          <ul class="list-reset flex justify-between flex-1 md:flex-none items-center menu">
+            <li class="flex-1 md:flex-none md:mr-3" id="btn_projects">
+              <a class="inline-block py-2 px-4 white_text no-underline" href="#">Proyectos</a>
+            </li>
+            <li class="flex-1 md:flex-none md:mr-3" id="nuevo_proyecto_btn">
+              <a class="inline-block py-2 px-4 white_text no-underline" href="#">Nuevo proyecto</a>
+            </li>
+            <!-- <li class="flex-1 md:flex-none md:mr-3">
+                            <a class="inline-block text-gray-400 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+                                href="#">link</a>
+                        </li> -->
+            <li class="flex-1 md:flex-none md:mr-3">
+              <div class="relative inline-block">
+                <button id="botonUsuario" onclick="toggleDD('myDropdown')" class="drop-button white_text py-2 px-2">
+                  Hi, {{ user_info.1 }}
+                  <svg class="h-3 fill-current inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                  </svg>
+                </button>
+
+                <div id="myDropdown"
+                  class="dropdownlist absolute bg-gray-800 white_text right-0 mt-3 p-3 overflow-auto z-30 invisible">
+                  <a href="#" data-target="profile_option" id="btn_profile"
+                    class="menu-option p-2 hover:bg-gray-800 white_text text-sm no-underline hover:no-underline block"><i
+                      class="fa fa-user fa-fw"></i> Profile</a>
+                  <a href="#" data-target="crear_usuario" id="option_crear_usuario"
+                    class="menu-option p-2 hover:bg-gray-800 white_text text-sm no-underline hover:no-underline block"><i
+                      class="fa fa-user fa-fw"></i> Crear</a>
+
+                  <div class="border border-gray-800"></div>
+                  <a href="#" class="p-2 hover:bg-gray-800 white_text text-sm no-underline hover:no-underline block"
+                    id="close_session_btn"><i class="fas fa-sign-out-alt fa-fw"></i> Log Out</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="flex flex-col md:flex-row menu">
+      <div id="loading-overlay">
+        <div id="loading-spinner"></div>
+        <div id="progress-container">
+          <div id="barra-progreso"></div>
+          <p id="porcentaje-progreso">0%</p> <!-- Aquí mostraremos el porcentaje -->
+        </div>
+        <p>Cargando...</p>
+      </div>
+
+      <style>
+        @keyframes spin {
+          0% {
+            transform: rotate(0deg);
+          }
+
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+
+        #progress-container {
+          width: 80%;
+          margin: 20px auto;
+          background-color: #f0f0f0;
+          border-radius: 5px;
+          overflow: hidden;
+          position: relative;
+          /* Agregamos posición relativa para los elementos hijos puedan usar posición absoluta */
+        }
+
+        #barra-progreso {
+          width: 0;
+          height: 20px;
+          background-color: #3498db;
+        }
+
+        #porcentaje-progreso {
+          margin: 0;
+          padding: 0;
+          text-align: center;
+          color: #000000;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          /* Centramos horizontal y verticalmente */
+        }
+      </style>
+      <!-- este es el menu del lado izquierdo -->
+      {% if proyecto_id %}
+      {% include 'components/home/navbar_left_side.html' %}
+      {% endif %}
+
+      <!-- final del menu izquierdo -->
+      <section class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5 flex flex-wrap"
+        id="container-no-project" style="height: auto;min-height: 90vh;overflow: hidden;">
+        {% if proyecto_id %}
+        {% include 'components/home/upload_files.html' %}
+
+        {% if gestion.metricas and gestion.impacto and gestion.interes %}
+
+        {% include 'components/home/view_graph.html' %}
+        {% include 'components/home/reportes.html' %}
+        {% include 'components/home/videos_modal.html' %}<!--MENU DE FILTROS-->
+        {% endif %}
+
+        {% include 'components/home/profile.html' %}<!--perfil-->
+        {% include 'components/home/crear_usuario.html' %}
+        {% else %}
+        <!-- Mostrar la imagen de bienvenida o mensaje cuando no hay proyectos -->
+        <div class="welcome-container">
+          <!-- <div id="blur_bg"></div>
+          <div id="welcome-subcontainer-options">
+            <div id="container_create_project">
+              Crear Proyecto
+            </div>
+            <div id="container_open_project">
+              Abrir Proyecto
+            </div>
+          </div> -->
+        </div>
+        {% endif %}
+      </section>
+    </div>
+  </main>
+  {% if not gestion.metricas and not gestion.impacto and not gestion.interes %}
+  <script>
+    const modal_graficos = document.querySelector("#view_upload_files")
+    const modal_perfil = document.querySelector('#profile_sesion')
+    const modal_crear = document.querySelector('#crear_usuario')
+
+    const profile_option = document.querySelector('#btn_profile')
+    const upload_files_option = document.querySelector('#cargar_archivos')
+    const option_crear_usuario = document.querySelector('#option_crear_usuario')
+
+    profile_option.addEventListener('click', () => {
+      modal_graficos.style.display = 'none'
+      modal_crear.style.display = 'none'
+      modal_perfil.style.display = 'flex'
+    })
+
+    upload_files_option.addEventListener('click', () => {
+      modal_perfil.style.display = 'none'
+      modal_crear.style.display = 'none'
+      modal_graficos.style.display = 'flex'
+    })
+
+    option_crear_usuario.addEventListener('click', () => {
+      modal_perfil.style.display = 'none'
+      modal_graficos.style.display = 'none'
+      modal_crear.style.display = 'flex'
+    })
+
+    modal_graficos.style.display = "flex";
+  </script>
+  {% endif %}
+
+  <script src="{% static 'js/home/toggle_menu_profile.js' %}"></script>
+  <script src="{% static 'js/controllers/close_session.js' %}"></script>
+  <script src="{% static 'js/home/open_create_proyect_modal.js' %}"></script>
+  <script src="{% static 'js/home/form_upload/form_upload.js' %}"></script>
+  <script src="{% static 'js/home/menu_options.js' %}"></script>
+  <script src="{% static 'js/home/video/video.js' %}"></script>
+  <script src="{% static 'js/home/filter_menu.js' %}"></script>
+  <script src="{% static 'js/home/form_upload/upload.js' %}"></script>
+  <script src="{% static 'js/home/form_upload/validar_usu.js' %}"></script>
+  <!-- FUNCIONAMIENTO BASICO GRAFICO EN LINEA -->
+  <script src="{% static 'js/home/charts_example.js' %}"></script>
+  <script src="{% static 'js/home/linea_graph/linea_graph.js' %}"></script>
+  <script src="{% static 'js/home/filtro/filtro.js' %}"></script>
+  <script src="{% static 'js/home/list_projects/list_projects.js' %}"></script>
+  <!--gestiona todo relacionado con los proyectos-->
+  <script src="{% static 'js/home/bar_graph/bar_graph.js' %}"></script>
+  <script src="{% static 'js/home/bar_graph/graf_interes.js' %}"></script>
+  <script src="{% static 'js/home/bar_graph/graf_impacto.js' %}"></script>
+  <script src="{% static 'js/home/reportes/reportes.js' %}"></script>
+</body>
+
+</html>

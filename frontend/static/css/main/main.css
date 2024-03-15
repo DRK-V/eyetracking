@@ -1,0 +1,133 @@
+html,
+body {
+  outline: none;
+}
+/* este archivo es para aplicar estilos que afecten a toda la aplicacion, como colores o tipografia*/
+:root {
+  --bg-dark: #242323;
+  --bg-dark-transparent: #242323;
+  /*color de fondo de los menus*/
+  --bg-white: #fffdfd;
+  /*color de fondo de los menus*/
+  --option-red: #ff4f4f;
+  /*color de las opciones */
+  --grey-text: #fef8f8;
+  /*color de las opciones de los menus*/
+  --white-text: #fdfdfd;
+  /*color de las opciones de los menus*/
+  --darkness-grey: #565050;
+  /*color del copyrigth*/
+  --green-color: #609568;
+  --grey-text-input: #acabab;
+  --bg-input: #5b5757;
+  --bg-transparents: rgba(0, 0, 0, 0.63);
+  --text-black: black;
+  --blue-bg-list: rgb(120, 202, 232);
+  --pink-bg: rgb(225, 103, 123);
+  --bg-gradiend-login: #000000;
+  --bg-gradiend-login2: #363636;
+}
+
+body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--white-text) var(--darkness-grey);
+  font-family: "Afacad", sans-serif;
+  overflow-y: hidden;
+  height: 100vh;
+}
+
+/* Estilos específicos para navegadores webkit (Chrome, Safari, Edge) */
+body::-webkit-scrollbar {
+  width: 5px;
+  /* Ancho del scrollbar */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--pink-bg);
+  /* Color del thumb (barra deslizante) */
+}
+
+body::-webkit-scrollbar-track {
+  background-color: var(--darkness-grey);
+  /* Color del track (fondo del scrollbar) */
+}
+/* barra de scrol para body, */
+html::-webkit-scrollbar {
+  width: 5px;
+  /* Ancho del scrollbar */
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: var(--pink-bg);
+  /* Color del thumb (barra deslizante) */
+}
+
+html::-webkit-scrollbar-track {
+  background-color: var(--darkness-grey);
+  /* Color del track (fondo del scrollbar) */
+}
+
+html {
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--option-red);
+  color: var(--white-text);
+}
+
+/* Estilos para el scrollbar */
+select::-webkit-scrollbar {
+  width: 12px;
+}
+
+select::-webkit-scrollbar-track {
+  background: var(--darkness-grey);
+}
+
+select::-webkit-scrollbar-thumb {
+  background-color: var(--option-red);
+  border-radius: 6px;
+  border: 3px solid (var(--white-text));
+}
+
+select::-webkit-scrollbar-thumb:hover {
+  background: var(--option-red);
+}
+
+/*ICONS*/
+.visible {
+  display: flex;
+}
+
+.hidden {
+  display: none;
+}
+
+.black_text {
+  color: var(--text-black);
+}
+
+.white_text {
+  color: var(--white-text);
+}
+
+/* animaciones */
+
+@keyframes rotate-icon-report {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(20deg);
+  }
+}
+
+@keyframes rotate-icon-refresh {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}

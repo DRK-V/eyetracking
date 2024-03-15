@@ -1,0 +1,12 @@
+{% load static %}
+{% block content %}
+{% if rutas_videos %}
+<div id="video-container">
+    <video id="my-video" muted controls>
+        <source src="" type="video/mp4" id="main_video">
+        Tu navegador no soporta el elemento de video.
+    </video>
+</div>
+<div id="time-indicator">0:00 / 0:00</div>
+{% endif %}
+{% endblock %}

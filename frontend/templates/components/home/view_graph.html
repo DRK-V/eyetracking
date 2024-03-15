@@ -1,0 +1,261 @@
+<!--view_graph.html-->
+
+{% load static %} {% block content %}
+<!--HEADER DE GRAFICO EN LINEA-->
+<!-- Agrega la referencia a Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/2.0.1/chartjs-plugin-zoom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+<script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
+<!-- Agrega la referencia al plugin de zoom de Chart.js -->
+
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+<!--HEADER DE GRAFICO EN LINEA-->
+{% include 'components/home/filters_menu.html' %}<!--MENU DE FILTROS-->
+
+<div class="w-full h-full flex flex-wrap items-start justify-start" id="view_graph">
+  <div id="vistaPrevia" class="vista-previa"></div>
+
+  <div class="header_analisis">
+    <p id="titulo_proyecto" style="font-weight: 400">
+      Analisis - {{ proyecto_info.0 }}
+    </p>
+
+    <li class="btn_filtros_header" id="filtros">
+      <a href="#" data-target="filtros"
+        class="menu-option block py-1 md:py-3 pl-1 align-middle white_text no-underline hover:white_text flex items-center">
+        <svg height="24" width="24" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+          <g id="Layer_23" data-name="Layer 23">
+            <path fill="#ff4f4f"
+              d="M59.59,50.42H51c-2.28-10-16.45-10-18.73,0H4.41a2,2,0,1,0,0,4H32.3c2.29,10,16.46,10,18.73,0h8.56A2,2,0,0,0,59.59,50.42ZM41.67,58c-7.38-.26-7.38-10.9,0-11.16C49.05,47.1,49.05,57.74,41.67,58Z" />
+            <path fill="#ff4f4f"
+              d="M59.59,30H28.52C26.24,20,12.07,20,9.79,30H4.41a2,2,0,1,0,0,4H9.79c2.28,10,16.45,10,18.73,0H59.59A2,2,0,0,0,59.59,30ZM19.16,37.58c-7.38-.24-7.37-10.93,0-11.16C26.53,26.66,26.53,37.35,19.16,37.58Z" />
+            <path fill="#ff4f4f"
+              d="M4.41,13.58H22.63c2.29,10,16.46,10,18.74,0H59.59a2,2,0,0,0,0-4H41.37c-2.29-10-16.46-10-18.74,0H4.41A2,2,0,0,0,4.41,13.58ZM32,6c7.38.26,7.38,10.9,0,11.16C24.62,16.9,24.62,6.26,32,6Z" />
+          </g>
+        </svg>
+        <span class="filter_text">Filtros</span>
+      </a>
+    </li>
+  </div>
+
+  {% include 'components/home/media.html' %}
+  {% include 'components/home/img_a.html' %}
+
+  <div class="w-full md:w-1/2 xl:w-1/2 p-6 container" id="linea_graph">
+    <!-- Graph Card -->
+    <div class="bg-white border-transparent rounded-lg shadow-xl w-full">
+      <div id="grafico-container" style="min-height: 100%">
+        <h1>
+          <strong id="metricas">Graficos Metricas</strong>
+          <small id="filtro_metricas_1"></small>
+          <small id="filtro_metricas_2"></small>
+          <button onclick="reiniciarGrafico()">
+            <svg id="icon-refrescar-metricas" width="24" height="20" viewBox="0 0 100 100" version="1.1"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+              <title>Reiniciar grafico</title>
+              <defs></defs>
+              <g id="4.-To-refresh" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"
+                stroke-linecap="round" stroke-linejoin="round">
+                <g transform="translate(0.000000, 8.000000)" stroke="#FF6B6B" stroke-width="4">
+                  <path
+                    d="M89,40 C89,17.90861 71.09139,0 49,0 C34.1239759,0 21.1446258,8.12062657 14.2530697,20.1707596"
+                    id="Layer-1"></path>
+                  <polyline id="Layer-2"
+                    transform="translate(89.000000, 37.000000) scale(1, -1) rotate(11.000000) translate(-89.000000, -37.000000) "
+                    points="79 42 89 32 99 42"></polyline>
+                  <path
+                    d="M91,84 C91,61.90861 73.09139,44 51,44 C36.1239759,44 23.1446258,52.1206266 16.2530697,64.1707596"
+                    id="Layer-3"
+                    transform="translate(51.000000, 64.000000) scale(-1, -1) translate(-51.000000, -64.000000) "></path>
+                  <polyline id="Layer-4"
+                    transform="translate(11.000000, 47.000000) scale(-1, 1) rotate(11.000000) translate(-11.000000, -47.000000) "
+                    points="1 52 11 42 21 52"></polyline>
+                </g>
+              </g>
+            </svg>
+          </button>
+          <button onclick="agregarAReporteMetricas()" class="btn_metri" style="color: aqua; height: auto">
+            <svg id="icon-reporte-metricas" height="24" width="24" class="icon" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" fill="#ff4f4f" id="Layer_1" x="0px" y="0px"
+              viewBox="0 0 512 512" xml:space="preserve">
+              <title>Enviar a reporte</title>
+              <desc>
+                Esta es una representación gráfica de enviar a reporte.
+              </desc>
+              <g id="XMLID_74_">
+                <path id="XMLID_170_" class="st0" d="M355.9 128h52L345 67.2v51.3c0 5 5.1 9.5 10.9 9.5z" fill="none" />
+                <path id="XMLID_174_" class="st0"
+                  d="M355.9 168c-28.1 0-50.9-22.2-50.9-49.6V40.7l-216.6-.6c-5.5 0-10.4 4.7-10.4 10v411.8c0 5.2 5.3 10.2 10.9 10.2h339c5.7 0 9.1-5.2 9.1-10.2V168h-81.1zM320 247c11 0 20 9 20 20s-9 20-20 20H145c-11 0-20-9-20-20s9-20 20-20h175zm-176-80h116c11 0 20 9 20 20s-9 20-20 20H144c-11 0-20-9-20-20s9-20 20-20zm226 200H145c-11 0-20-9-20-20s9-20 20-20h225c11 0 20 9 20 20s-9 20-20 20z"
+                  fill="none" />
+                <path id="XMLID_488_"
+                  d="M467.2 129.8L345.5 12C338.1 4.8 328 .7 317.6.7L88.4.1C60.6.1 38 22.5 38 50.1v411.8C38 489 61.3 512 88.9 512h339c27.1 0 49.1-22.5 49.1-50.2V153.7c0-9.3-3.5-17.8-9.8-23.9zM345 67.2l62.9 60.8h-52c-5.8 0-10.9-4.5-10.9-9.6V67.2zM427.9 472h-339c-5.6 0-10.9-4.9-10.9-10.2V50.1c0-5.3 4.9-10 10.4-10l216.6.6v77.7c0 27.3 22.8 49.6 50.9 49.6H437v293.8c0 5-3.4 10.2-9.1 10.2z" />
+                <path id="XMLID_490_"
+                  d="M125 267c0 11 9 20 20 20h175c11 0 20-9 20-20s-9-20-20-20H145c-11 0-20 9-20 20z" />
+                <path id="XMLID_491_" d="M144 207h116c11 0 20-9 20-20s-9-20-20-20H144c-11 0-20 9-20 20s9 20 20 20z" />
+                <path id="XMLID_492_" d="M370 327H145c-11 0-20 9-20 20s9 20 20 20h225c11 0 20-9 20-20s-9-20-20-20z" />
+              </g>
+            </svg>
+          </button>
+        </h1>
+        <canvas id="myChart" height="188"> </canvas>
+      </div>
+    </div>
+    <!-- /Graph Card -->
+  </div>
+
+  <div class="w-full md:w-1/2 xl:w-1/2 p-6 container">
+    <div class="bg-white border-transparent rounded-lg shadow-xl w-full">
+      <div id="grafico-container">
+        <strong id="interes">Graficos interes</strong>
+        <small id="filtro_interes_1"></small>
+        <small id="filtro_interes_2"></small>
+        <button onclick="agregarAReporte()">
+          <svg id="icon-reporte-interes" height="24" width="24" class="icon" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" fill="#ff4f4f" id="Layer_1" x="0px" y="0px"
+            viewBox="0 0 512 512" xml:space="preserve">
+            <title>Enviar a reporte</title>
+            <desc>Esta es una representación gráfica de enviar a reporte.</desc>
+            <g id="XMLID_74_">
+              <path id="XMLID_170_" class="st0" d="M355.9 128h52L345 67.2v51.3c0 5 5.1 9.5 10.9 9.5z" fill="none" />
+              <path id="XMLID_174_" class="st0"
+                d="M355.9 168c-28.1 0-50.9-22.2-50.9-49.6V40.7l-216.6-.6c-5.5 0-10.4 4.7-10.4 10v411.8c0 5.2 5.3 10.2 10.9 10.2h339c5.7 0 9.1-5.2 9.1-10.2V168h-81.1zM320 247c11 0 20 9 20 20s-9 20-20 20H145c-11 0-20-9-20-20s9-20 20-20h175zm-176-80h116c11 0 20 9 20 20s-9 20-20 20H144c-11 0-20-9-20-20s9-20 20-20zm226 200H145c-11 0-20-9-20-20s9-20 20-20h225c11 0 20 9 20 20s-9 20-20 20z"
+                fill="none" />
+              <path id="XMLID_488_"
+                d="M467.2 129.8L345.5 12C338.1 4.8 328 .7 317.6.7L88.4.1C60.6.1 38 22.5 38 50.1v411.8C38 489 61.3 512 88.9 512h339c27.1 0 49.1-22.5 49.1-50.2V153.7c0-9.3-3.5-17.8-9.8-23.9zM345 67.2l62.9 60.8h-52c-5.8 0-10.9-4.5-10.9-9.6V67.2zM427.9 472h-339c-5.6 0-10.9-4.9-10.9-10.2V50.1c0-5.3 4.9-10 10.4-10l216.6.6v77.7c0 27.3 22.8 49.6 50.9 49.6H437v293.8c0 5-3.4 10.2-9.1 10.2z" />
+              <path id="XMLID_490_"
+                d="M125 267c0 11 9 20 20 20h175c11 0 20-9 20-20s-9-20-20-20H145c-11 0-20 9-20 20z" />
+              <path id="XMLID_491_" d="M144 207h116c11 0 20-9 20-20s-9-20-20-20H144c-11 0-20 9-20 20s9 20 20 20z" />
+              <path id="XMLID_492_" d="M370 327H145c-11 0-20 9-20 20s9 20 20 20h225c11 0 20-9 20-20s-9-20-20-20z" />
+            </g>
+          </svg>
+        </button>
+
+        <canvas id="grafico-barras" width="400" height="200"></canvas>
+      </div>
+      <button class="btn_resumen_graficos" id="btn_resumen_interes" onclick="toggleResumen()">
+        Resumen Interes
+        <!-- icono de ojo abierto -->
+        <small class="icon_visible">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+            <path fill="#fff"
+              d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z" />
+          </svg>
+        </small>
+        <!-- icono de ojo cerrado -->
+        <small class="icon_no_visible">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+            <path fill="#fff"
+              d="m644-428-58-58q9-47-27-88t-93-32l-58-58q17-8 34.5-12t37.5-4q75 0 127.5 52.5T660-500q0 20-4 37.5T644-428Zm128 126-58-56q38-29 67.5-63.5T832-500q-50-101-143.5-160.5T480-720q-29 0-57 4t-55 12l-62-62q41-17 84-25.5t90-8.5q151 0 269 83.5T920-500q-23 59-60.5 109.5T772-302Zm20 246L624-222q-35 11-70.5 16.5T480-200q-151 0-269-83.5T40-500q21-53 53-98.5t73-81.5L56-792l56-56 736 736-56 56ZM222-624q-29 26-53 57t-41 67q50 101 143.5 160.5T480-280q20 0 39-2.5t39-5.5l-36-38q-11 3-21 4.5t-21 1.5q-75 0-127.5-52.5T300-500q0-11 1.5-21t4.5-21l-84-82Zm319 93Zm-151 75Z" />
+          </svg>
+        </small>
+      </button>
+      <div id="resumen-container" style="display: none">
+        <table border="1">
+          <thead>
+            <tr>
+              <th>Género</th>
+              <th>Marco</th>
+              <th>Patas</th>
+              <th>Puente</th>
+            </tr>
+          </thead>
+          <tbody id="resumen-tabla-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-full md:w-1/2 xl:w-1/2 p-6 container">
+
+    <div class="bg-white border-transparent rounded-lg shadow-xl w-full">
+      <div id="grafico-container-impacto">
+        <strong id="impacto">Graficos Impacto</strong>
+        <small id="filtro_impacto_1"></small>
+        <small id="filtro_impacto_2"></small>
+        <button onclick="agregarAReporteImpacto()">
+          <svg id="icon-reporte-impacto" height="24" width="24" class="icon" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" fill="#ff4f4f" id="Layer_1" x="0px" y="0px"
+            viewBox="0 0 512 512" xml:space="preserve">
+            <title>Enviar a reporte</title>
+            <desc>Esta es una representación gráfica de enviar a reporte.</desc>
+            <g id="XMLID_74_">
+              <path id="XMLID_170_" class="st0" d="M355.9 128h52L345 67.2v51.3c0 5 5.1 9.5 10.9 9.5z" fill="none" />
+              <path id="XMLID_174_" class="st0"
+                d="M355.9 168c-28.1 0-50.9-22.2-50.9-49.6V40.7l-216.6-.6c-5.5 0-10.4 4.7-10.4 10v411.8c0 5.2 5.3 10.2 10.9 10.2h339c5.7 0 9.1-5.2 9.1-10.2V168h-81.1zM320 247c11 0 20 9 20 20s-9 20-20 20H145c-11 0-20-9-20-20s9-20 20-20h175zm-176-80h116c11 0 20 9 20 20s-9 20-20 20H144c-11 0-20-9-20-20s9-20 20-20zm226 200H145c-11 0-20-9-20-20s9-20 20-20h225c11 0 20 9 20 20s-9 20-20 20z"
+                fill="none" />
+              <path id="XMLID_488_"
+                d="M467.2 129.8L345.5 12C338.1 4.8 328 .7 317.6.7L88.4.1C60.6.1 38 22.5 38 50.1v411.8C38 489 61.3 512 88.9 512h339c27.1 0 49.1-22.5 49.1-50.2V153.7c0-9.3-3.5-17.8-9.8-23.9zM345 67.2l62.9 60.8h-52c-5.8 0-10.9-4.5-10.9-9.6V67.2zM427.9 472h-339c-5.6 0-10.9-4.9-10.9-10.2V50.1c0-5.3 4.9-10 10.4-10l216.6.6v77.7c0 27.3 22.8 49.6 50.9 49.6H437v293.8c0 5-3.4 10.2-9.1 10.2z" />
+              <path id="XMLID_490_"
+                d="M125 267c0 11 9 20 20 20h175c11 0 20-9 20-20s-9-20-20-20H145c-11 0-20 9-20 20z" />
+              <path id="XMLID_491_" d="M144 207h116c11 0 20-9 20-20s-9-20-20-20H144c-11 0-20 9-20 20s9 20 20 20z" />
+              <path id="XMLID_492_" d="M370 327H145c-11 0-20 9-20 20s9 20 20 20h225c11 0 20-9 20-20s-9-20-20-20z" />
+            </g>
+          </svg>
+        </button>
+        <canvas id="grafico-barras-impacto" width="400" height="200"></canvas>
+      </div>
+      <button class="btn_resumen_graficos" id="btn_resumen_impacto" onclick="toggleResumenImpacto()">
+        Resumen Impacto
+        <!-- icono de ojo abierto -->
+        <small class="icon_visible">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+            <path fill="#fff"
+              d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z" />
+          </svg>
+        </small>
+        <!-- icono de ojo cerrado -->
+        <small class="icon_no_visible">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+            <path fill="#fff"
+              d="m644-428-58-58q9-47-27-88t-93-32l-58-58q17-8 34.5-12t37.5-4q75 0 127.5 52.5T660-500q0 20-4 37.5T644-428Zm128 126-58-56q38-29 67.5-63.5T832-500q-50-101-143.5-160.5T480-720q-29 0-57 4t-55 12l-62-62q41-17 84-25.5t90-8.5q151 0 269 83.5T920-500q-23 59-60.5 109.5T772-302Zm20 246L624-222q-35 11-70.5 16.5T480-200q-151 0-269-83.5T40-500q21-53 53-98.5t73-81.5L56-792l56-56 736 736-56 56ZM222-624q-29 26-53 57t-41 67q50 101 143.5 160.5T480-280q20 0 39-2.5t39-5.5l-36-38q-11 3-21 4.5t-21 1.5q-75 0-127.5-52.5T300-500q0-11 1.5-21t4.5-21l-84-82Zm319 93Zm-151 75Z" />
+          </svg>
+        </small>
+      </button>
+      <div id="resumen-container-impacto" style="display: none">
+        <table border="1">
+          <thead>
+            <tr>
+              <th>Género</th>
+              <th>Marco</th>
+              <th>Patas</th>
+              <th>Puente</th>
+            </tr>
+          </thead>
+          <tbody id="resumen-tabla-body-impacto"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Selecciona todos los botones
+  var toggleButtons = document.querySelectorAll(".btn_resumen_graficos");
+
+  // Para cada botón, agrega un evento de click
+  toggleButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      // Encuentra los elementos small dentro del contenedor del botón
+      var container = button.parentElement;
+      var visibleIcon = container.querySelector(".icon_visible");
+      var noVisibleIcon = container.querySelector(".icon_no_visible");
+
+      // Alterna la visibilidad de los iconos
+      if (visibleIcon && noVisibleIcon) {
+        if (visibleIcon.style.display === 'none') {
+          button.style.backgroundColor = '#4caf4f88'
+          visibleIcon.style.display = 'flex';
+          noVisibleIcon.style.display = 'none';
+        } else {
+          button.style.backgroundColor = '#b5241f'
+          visibleIcon.style.display = 'none';
+          noVisibleIcon.style.display = 'flex';
+        }
+      }
+    });
+  });
+</script>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% load static %}
+{% block content %}
+<div class="main_modal_crear">
+    <div class="blur_modal_crear"></div>
+    <form class="modal_crear" method="post" action="{% url 'crear_proyecto' %}">
+        <span class="btn_close_create_proyect_modal">X</span>
+        {% csrf_token %}
+        <h1>Crear un nuevo proyecto</h1>
+        <label for="nombre_proyecto_input">Nombre proyecto <span style="color:red;">*</span></label>
+        <input type="text" name="nombre_proyecto" placeholder="Nombre proyecto" id="name_proyect_input" required>
+        <label for="descripcion_proyecto_input">Descripcion proyecto</label>
+        <textarea name="descripcion_proyecto" id="descripcion_proyecto_input" cols="30" rows="10"
+            placeholder="Escribe una corta descripcion del proyecto aqui"></textarea>
+        <button type="submit" class="btn_create_proyect">Crear proyecto</button>
+    </form>
+</div>
+{% endblock %}

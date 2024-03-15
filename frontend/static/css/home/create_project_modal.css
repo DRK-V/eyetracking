@@ -1,0 +1,193 @@
+.main_modal_crear {
+    position: fixed;
+    float: right;
+    bottom: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: var(--bg-white);
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.blur_modal_crear {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    filter: blur(5px);
+    /* Ajusta este valor según tus preferencias */
+    z-index: 21;
+    /* background-color: rgba(134, 134, 134, 0.806); */
+}
+
+.modal_crear {
+    /* box-shadow: 1px 0px 10px 1px var(--darkness-grey); */
+    z-index: 22;
+    background-color: var(--bg-white);
+    display: flex;
+    width:80vw;
+    height: 90vh;
+    background-color: var(--bg-white);
+    border-radius: 1rem;
+    color: var(--black-text);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 3em;
+    gap:1em;
+    box-sizing: border-box;
+}
+.modal_crear > label{
+    width: 80%;
+    text-align: left;
+}
+.modal_crear>h1 {
+    width: 100%;
+    height: 20%;
+    border-radius: 1rem 1rem 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}
+
+.modal_crear>span {
+    position: relative;
+    float: right;
+    top: 0;
+    text-align: left;
+    width: 80%;
+    text-align: end;
+    right: 1em;
+    font-size: 1.4em;
+    cursor: pointer;
+}
+
+#name_proyect_input {
+    width: 80%;
+}
+
+#name_proyect_input,
+form textarea {
+    /* margin-top: 1em; */
+    border-radius: .2rem;
+    padding: .7em;
+    outline: none;
+    background-color: rgb(233 228 228);
+    color: black;
+    &::placeholder {
+        color: var(--black-text);
+    }
+}
+
+.modal_crear textarea {
+    width: 80%;
+    /* Ajusta el ancho según sea necesario */
+    resize: none;
+    /* Evita que el usuario pueda redimensionar el textarea */
+    overflow-y: auto;
+    /* Agrega un scrollbar vertical cuando sea necesario */
+    scrollbar-color: var(--grey-text-input) var(--bg-input);
+    /* Configura el color del scrollbar */
+}
+
+.modal_crear textarea::-webkit-scrollbar {
+    width: 12px;
+    /* Ajusta el ancho del scrollbar según sea necesario */
+}
+
+.modal_crear textarea::-webkit-scrollbar-thumb {
+    background-color: var(--grey-text-input);
+    /* Color del scrollbar thumb */
+}
+
+.modal_crear textarea::-webkit-scrollbar-track {
+    background-color: var(--bg-input);
+    /* Color del scrollbar track */
+}
+
+.btn_create_proyect {
+    width: 20%;
+    height: 10%;
+    color: white;
+    font-weight: bold;
+    border-radius: .6rem;
+    background-color: #fe5b29;
+}
+
+@media (max-width:1270px) {
+    .modal_crear {
+        width:100%;
+        height: auto;
+        min-height: 100vh;
+    }
+}
+
+@media (max-width:850px) {
+    .modal_crear {
+        width: 100%;
+        height: 60%;
+    }
+    .modal_crear textarea{
+        height: 20vh;
+    }
+}
+
+@media (max-width:770px) {
+    .modal_crear {
+        width: 100%;
+        height: 80%;
+        /* margin-top: 5em; */
+    }
+
+    #name_proyect_input,
+    form textarea {
+        /* margin-top: 4em; */
+        padding: 1em 2em;
+    }
+
+    .modal_crear>div {
+        width: 50%;
+    }
+
+    .btn_create_proyect {
+        height: 15%;
+        width: 100%;
+    }
+}
+
+@media (max-width:500px) {
+    .nodal_crear {
+        min-height: 100vh;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modal_crear>div {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    #rigth_side_form {
+        display: none;
+    }
+
+    .modal_crear>h1 {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width:300px) {
+    .main_modal_crear {
+        height: 130vh;
+    }
+
+    .blur_modal_crear {
+        height: 150vh;
+    }
+}

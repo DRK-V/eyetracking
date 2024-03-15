@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+form {
+    width: 50%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#file-input {
+    display: none;
+}
+
+#file-label {
+    cursor: pointer;
+    border: dashed 3px rgb(151, 147, 147);
+    border-radius: .5rem;
+}
+
+#file-label img {
+    width: 100px; /* Ajusta el tamaño de la imagen como desees */
+    height: 100px; /* Ajusta el tamaño de la imagen como desees */
+}
+
+#submit-button {
+    margin-top: 20px;
+}

@@ -1,0 +1,472 @@
+/* Estilos para el nuevo tipo de select */
+.my-custom-select {
+  align-items: center;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  width: 40%;
+  /* Ajusta según sea necesario */
+  max-height: 80%;
+  color: var(--white-text);
+  background-color: var(--darkness-grey);
+  margin-bottom: 1em;
+  /* Añadido para dar espacio entre elementos */
+  border-radius: 1rem;
+}
+
+.my-custom-select select {
+  color: var(--white-text);
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--darkness-grey);
+  font-size: 1.2rem;
+  font-weight: 600;
+  width: 100%;
+  max-height: 40%;
+  outline: none;
+  position: relative;
+  appearance: none;
+  padding: .5em;
+  /* Añadido para ajustar el espaciado interno */
+  border-radius: 1rem;
+}
+
+.my-custom-select label {
+  position: absolute;
+  right: 1.2rem;
+  margin: auto;
+  display: flex;
+}
+
+.my-custom-select span {
+  border-radius: .4rem;
+  max-height: 40%;
+}
+
+/* Estilos para la estructura de filtro */
+#filter_menu {
+  position: fixed;
+  width: 25%;
+  height: 100vh;
+  background-color: var(--bg-dark-transparent);
+  z-index: 30;
+  float: right;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  display: none;
+  bottom: 0;
+}
+
+#header_filter_menu {
+  width: 100%;
+  height: 6%;
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#btn_close_filters_menu {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  color: var(--white-text);
+  cursor: pointer;
+}
+
+#sub_main_filter_container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 90%;
+  min-height: 80vh;
+  height: auto;
+  color: var(--white-text);
+  /* border: dashed 1px white; */
+  flex-direction: column;
+  overflow-y: auto;
+  /* Estilos para el scrollbar en navegadores webkit (Chrome, Safari, Edge) */
+  scrollbar-width: thin;
+  /* Para Firefox */
+  scrollbar-color: var(--white-text) var(--darkness-grey);
+  /* Color del scrollbar */
+}
+
+/* Estilos específicos para navegadores webkit (Chrome, Safari, Edge) */
+#sub_main_filter_container::-webkit-scrollbar {
+  width: 5px;
+  /* Ancho del scrollbar */
+}
+
+#sub_main_filter_container::-webkit-scrollbar-thumb {
+  background-color: var(--pink-bg);
+  /* Color del thumb (barra deslizante) */
+}
+
+#sub_main_filter_container::-webkit-scrollbar-track {
+  background-color: var(--darkness-grey);
+  /* Color del track (fondo del scrollbar) */
+}
+
+#sub_main_filter_container>h1 {
+  width: 100%;
+  height: 6vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+#puntos_interes {
+  min-width: 8em;
+}
+
+#puntos_interes>.my-custom-select label {
+  right: -0.8rem;
+}
+
+/* Estilos de los contenedores donde irán los select */
+.container_select {
+  width: 90%;
+  height: auto;
+  min-height: 20vh;
+  /* background-color: rgb(75, 74, 74); */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: start;
+}
+
+.container_select>p {
+  width: 100%;
+  height: 7vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1em;
+  font-size: 1.1em;
+}
+
+#input_between_ages,
+#input_between_ages2 {
+  width: 100%;
+  min-height: 10vh;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  padding-left: 1.7rem;
+}
+
+#input_between_ages2 {
+  justify-content: space-between;
+}
+
+#grey-text {
+  color: var(--white-text);
+  width: auto;
+  min-width: 70%;
+  text-align: left;
+  letter-spacing: 1px;
+  padding-left: 1em;
+  box-sizing: border-box;
+}
+
+#container_separator {
+  position: relative;
+  min-width: 10%;
+  min-height: 6vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#separator {
+  display: flex;
+  width: 100%;
+}
+
+/* Estilos de los select */
+.select_container {
+  position: relative;
+  display: inline-block;
+}
+
+.select_ages {
+  width: 30%;
+  height: 5vh;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+  appearance: none;
+  /* Elimina el estilo nativo del navegador */
+  background-color: var(--darkness-grey);
+  color: var(--white-text);
+  font-size: 16px;
+  outline: none;
+}
+
+
+/* Agregar un icono personalizado para el despliegue */
+.select_ages::-ms-expand {
+  display: none;
+}
+
+.select_ages:after {
+  content: '\25B6';
+  /* Representa la flecha hacia la derecha */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%) rotate(90deg);
+  pointer-events: none;
+  background-color: red;
+  /* Esto es solo para prueba, puede eliminarse o ajustarse según sea necesario */
+}
+
+/* Estilo para las opciones */
+.select_ages option {
+  width: 70%;
+  /* background-color: var(--darkness-grey); */
+  color: var(--white-text);
+}
+
+/* Separador entre el número y el icono */
+.separator {
+  position: absolute;
+  top: 50%;
+  right: calc(10px + 12px + 5px);
+  /* Ajusta según sea necesario */
+  transform: translateY(-50%);
+  color: var(--white-text);
+}
+
+.material-icons::before {
+  content: '|';
+  position: relative;
+  top: -25%;
+}
+
+
+/* checkbox  */
+.contenedor-checkbox {
+  width: 100%;
+  min-height: 20vh;
+  max-height: 100vh;
+  overflow-y: auto;
+  margin: 0 auto;
+  padding: 20px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--white-text) var(--darkness-grey);
+  background: #2a2828;
+  border-radius: 0.5rem;
+}
+
+#contenedor-checkbox-metricas {
+  display: flex;
+  height: 5vh;
+  min-height: 14.5vh;
+  /* max-height: 5vh; */
+}
+
+/* Estilos específicos para navegadores webkit (Chrome, Safari, Edge) */
+.contenedor-checkbox::-webkit-scrollbar {
+  width: 12px;
+  /* Ancho del scrollbar */
+}
+
+.contenedor-checkbox::-webkit-scrollbar-thumb {
+  background-color: var(--pink-bg);
+  /* Color del thumb (barra deslizante) */
+}
+
+.contenedor-checkbox::-webkit-scrollbar-track {
+  background-color: var(--darkness-grey);
+  /* Color del track (fondo del scrollbar) */
+}
+
+
+.title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  width: 80%;
+}
+
+.checkbox-container {
+  display: flex;
+  /* flex-wrap: wrap; */
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Estilos para los checkboxes */
+.select_filter {
+  margin-right: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.container-select {
+  width: 50%;
+  /* height: 100%; */
+}
+#container-select-ref-impacto, #container-select-ref-interes{
+  width: 70%;
+}
+.container-select>label {
+  font-size: .8em;
+}
+
+/* estilos de select */
+.container-select {
+  position: relative;
+}
+
+/* Estilo para el botón desplegable del select */
+.select_filter {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: var(--darkness-grey);
+  color: white;
+  padding: .7em;
+  border-radius: 1em;
+  outline: none;
+  cursor: pointer;
+  /* Añadir triángulo al final del botón desplegable con margen a la derecha */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 8 8"><path d="M0 1l4 4 4-4H0z" fill="white"/></svg>');
+  background-repeat: no-repeat;
+  background-position: calc(100% - .5em) center;
+  /* Ajusta el valor 20px según sea necesario */
+  max-width: 100%;
+  padding-right: 20px;
+  /* Espacio adicional para el icono */
+}
+
+/* Pseudo-elemento para el triángulo del botón desplegable */
+.select_filter::after {
+  content: '\25BC';
+  /* Código Unicode para el triángulo hacia abajo */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 0.8em;
+  color: white;
+}
+
+/* Cambiar el color del texto de las opciones del select */
+.select_filter option {
+  background-color: var(--bg-dark);
+  color: white;
+}
+
+
+
+.checkbox input[type="checkbox"] {
+  /* Estilos del cuadro del checkbox */
+  width: 20px;
+  /* Ancho del cuadro */
+  height: 20px;
+  /* Altura del cuadro */
+  border: 2px solid #ffffff;
+  /* Borde blanco */
+  background-color: none;
+  /* Sin color de fondo */
+  margin-right: 8px;
+  /* Espaciado entre el cuadro y el texto */
+  cursor: pointer;
+  /* Cambia el cursor al pasar sobre el checkbox */
+  -webkit-appearance: none;
+  /* Elimina los estilos predeterminados en algunos navegadores webkit */
+}
+
+.checkbox input[type="checkbox"]::before {
+  /* Pseudo-elemento para el símbolo de marca */
+  content: '🚩';
+  /* Contenido vacío */
+  /* Centra verticalmente */
+  left: 50%;
+  /* Centra horizontalmente */
+  transform: translate(-20%, -4em);
+  transform: rotate(-12deg);
+  /* Centra completamente */
+  width: 12px;
+  /* Ancho del símbolo de marca */
+  height: 12px;
+  /* Altura del símbolo de marca */
+  display: none;
+  /* Inicialmente oculto */
+  font-size: 1.4em;
+  color: white;
+}
+
+.checkbox input[type="checkbox"]:checked::before {
+  /* Estilos cuando el checkbox está marcado */
+  display: block;
+  /* Muestra el pseudo-elemento */
+}
+
+.checkbox input[type="checkbox"]:checked {
+  /* Estilos cuando el checkbox está marcado */
+  border: 2px solid #ff69b4;
+  color: pink;
+  /* Borde rosado */
+}
+
+/* Opcional: Puedes agregar estilos adicionales al texto junto al checkbox si es necesario */
+.checkbox label {
+  font-size: 16px;
+  color: pink;
+}
+
+#apply_filter {
+  position: relative;
+  width: 80%;
+  min-height: 8vh;
+  background-color: var(--green-color);
+  margin-bottom: 2em;
+}
+@media (min-width:1200px) {
+  .checkbox-container{
+    flex-wrap: nowrap;
+  }
+}
+@media (max-width:1200px) {
+  #filter_menu {
+    width: 40%;
+  }
+}
+
+
+@media (max-width:780px) {
+  #filter_menu {
+    width: 60%;
+  }
+}
+
+@media (max-width:600px) {
+  #filter_menu {
+    width: 80%;
+    height: 100vh;
+  }
+}
+
+@media (max-width:410px) {
+  #filter_menu {
+    width: 100%;
+    height: 80vh;
+  }
+}

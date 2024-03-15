@@ -1,0 +1,176 @@
+/* Estilos generales para todos los tamaños de pantalla */
+
+.main_modal_list_projects {
+    position: fixed;
+    float: right;
+    bottom: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+    /* background-color: var(--bg-transparents); */
+    z-index: 200;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    display: none;
+    border: none;
+}
+
+.blur_modal_list_projects {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    filter: blur(5px);
+    z-index: 21;
+    /* background-color: rgba(134, 134, 134, 0.806); */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.modal_list_projects {
+    /* box-shadow: 1px 0px 10px 1px var(--darkness-grey); */
+    z-index: 22;
+    background-color: var(--bg-dark);
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-white);
+    border-radius: 1rem;
+    color: var(--black-text);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-bottom: 3em;
+    overflow: hidden;
+}
+
+.modal_list_projects>h1 {
+    width: 100%;
+    height: 10%;
+    border-radius: 1rem 1rem 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}
+
+.modal_list_projects>span {
+    position: relative;
+    float: right;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 1.4em;
+    cursor: pointer;
+    padding: 1em;
+    font-size: 2em;
+    height: 2%;
+}
+
+.modal_list_projects>div {
+    width: 45%;
+    height: 80%;
+    display: flex;
+    align-items: flex-start;
+    padding: 2em;
+    flex-direction: column;
+}
+
+#container_table_list_projects {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    width: 90%;
+    height: auto;
+    min-height: 70%;
+    max-height: 80%;
+    overflow-y: auto;
+    display: inline-block;
+    margin-bottom: 2em;
+}
+
+/* Estilos del scrollbar para navegadores WebKit (Chrome, Safari) */
+#container_table_list_projects::-webkit-scrollbar {
+    width: 12px;
+}
+
+#container_table_list_projects::-webkit-scrollbar-thumb {
+    background-color: var(--bg-white);
+}
+
+#container_table_list_projects::-webkit-scrollbar-track {
+    background-color: var(--darkness-grey);
+}
+
+/* Estilos de la tabla */
+#table_projects {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    border: none;
+}
+
+.title_columns_list_projects_table {
+    font-size: .8em;
+    border-right: solid 1px orange;
+    border-bottom: solid 1px orange;
+}
+
+.rows_list_projects_table,
+.value_list_projects {}
+
+#table_projects>tbody>tr,
+#table_projects>tbody>tr>td {
+    text-align: center;
+    max-height: 10px;
+}
+
+@media (max-width: 1250px) {
+    .modal_list_projects {
+        width: 90vw;
+    }
+
+    .modal_list_projects>div {
+        width: 100%;
+        padding: 1em;
+    }
+}
+
+
+/* Media queries para tabletas */
+@media (max-width: 850px) {
+    .modal_list_projects {
+        width: 100vw;
+    }
+
+    .modal_list_projects>div {
+        width: 100%;
+        padding: 1em;
+    }
+}
+
+@media (max-width: 850px) {
+    #container_table_list_projects{
+        width: 100%;
+    }
+}
+
+/* Media queries para celulares */
+@media (max-width: 757px) {
+    #table_projects>tbody>tr, #table_projects>tbody>tr>td{
+     font-size: .8em;   
+    }
+    #table_projects ,#container_table_list_projects{
+        /* overflow: hidden; */
+    }
+    .modal_list_projects {
+        width: 100vw;
+    }
+
+    .modal_list_projects>div {
+        width: 100%;
+        padding: 1em;
+    }
+}

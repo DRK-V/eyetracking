@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" href="{% static 'css/main/main.css' %}" />
+  <link rel="shortcut icon" href="{% static 'img/eye_icon.png' %}" type="image/x-icon" />
+  <link rel="shortcut icon" href="{% static 'img/media_login/login.png' %}" type="image/x-icon" />
+  <link rel="shortcut icon" href="{% static 'img/media_login/Rectangle 36.png' %}" type="image/x-icon" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <!-- Agrega estos enlaces en la sección head de tu HTML -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <link rel="stylesheet" href="{% static 'css/login/login.css' %}" />
+  <title>Login</title>
+</head>
+
+<body id="body-login">
+  {% include 'components/navbar.html' %}
+  <div class="login-container">
+    <div class="main-container-form">
+      <div class="full-form">
+        <center class="login_title">Login</center>
+        <form id="formulario_login">
+          <div class="form-group">
+            <div class="input-with-icon bloque_login">
+              <img id="icon_sesion" src="{% static 'img/correo_icon.png' %}" alt="" />
+              <input type="email" class="form-control" id="correo" placeholder=" Ingresa tu correo"
+                autocomplete="username" />
+            </div>
+          </div>
+          <div class="form-group bloque_login">
+            <img id="icon_sesion" src="{% static  'img/desbloquear_icon.png' %}" alt="" />
+            <input type="password" class="form-control" id="contrasena" placeholder="Ingresa tu contraseña"
+              autocomplete="current-password" />
+          </div>
+          <button type="submit" class="btn btn-primary" id="send_user" style="background-color: #fe5b29;">
+            Iniciar sesión
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="{% static 'js/controllers/login.js' %}"></script>
+</body>
+
+</html>

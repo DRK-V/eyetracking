@@ -1,0 +1,49 @@
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/home/list_proyects/list_proyects.css' %}">
+
+<div class="main_modal_list_projects">
+    <div class="blur_modal_list_projects"></div>
+    <div class="modal_list_projects">
+        <span class="btn_close_list_projects_modal">X</span>
+        <h1>Tus Proyectos</h1>
+        <div id="container_table_list_projects"><!-- este es el que debe de contener el scroll infinito -->
+            {% if proyectos %}
+            <table id="table_projects" border="0">
+                <thead>
+                    <tr>
+                        {% for columna in proyectos.0.keys %}
+                        <th class="title_columns_list_projects_table">{{ columna }}</th>
+                        {% endfor %}
+                        <th class="title_columns_list_projects_table">Acciones</th> <!-- Nueva columna para el botón -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for proyecto in proyectos %}
+                    <tr class="rows_list_projects_table">
+                        {% for columna, valor in proyecto.items %}
+                        <td class="value_list_projects">
+                            {% if valor is None or valor == '' %}
+                            <!-- Si el valor es None o está vacío, muestra un mensaje o valor predeterminado -->
+                            Valor no disponible
+                            {% else %}
+                            <!-- Si el valor no es None ni está vacío, muestra el valor normalmente -->
+                            {{ valor }}
+                            {% endif %}
+                        </td>
+                        {% endfor %}
+                        <!-- Agrega el botón con el ID del proyecto como data -->
+                        <td><button class="btn-accion" data-id="{{ proyecto.id_proyecto }}">
+                                <img src="{% static 'img/icons/open.svg' %}" alt="" srcset="">
+                            </button></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p style="text-align: center;">No se encontró información.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

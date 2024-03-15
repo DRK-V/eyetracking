@@ -1,0 +1,161 @@
+#video-container {
+    display: flex;
+    position: relative;
+    width: 45%;
+    max-width: 800px;
+    /* Limita el ancho del video */
+    margin: auto;
+    height: 45vh;
+    max-height: 45vh;
+    overflow: hidden;
+    object-fit: contain;
+    background-color: rgb(0, 0, 0);
+    border-radius: 1rem;
+}
+
+#custom-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Alinea los controles al centro horizontalmente */
+    border-radius: 5px;
+    position: absolute;
+    bottom: 1em;
+    width: 100%;
+    z-index: 2;
+    flex-wrap: wrap;
+    opacity: 1;
+    /* Nueva propiedad para la opacidad inicial */
+    transition: opacity 0.5s;
+    /* Agregar transición de opacidad */
+}
+
+#center-icon-container {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#center-icon {
+    font-size: 100px;
+    /* Tamaño del ícono central */
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#custom-timeline-container {
+    display: flex;
+    width: 90%;
+    height: 20px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+}
+
+
+#start-circle,
+#end-circle {
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    background-color: #ff4f4f;
+    margin-top: -7.5px;
+    position: relative;
+    top: .5vh;
+}
+
+#start-circle {
+    margin-right: auto;
+    left: 1%;
+}
+
+#end-circle {
+    right: 1%;
+    margin-left: auto;
+}
+
+video {
+    width: 100%;
+    display: block;
+}
+
+#controls-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 20%;
+    position: relative;
+    height: 5vh;
+    left: 0;
+}
+
+button {
+    object-fit: contain;
+    border: none;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    height: 100%;
+    opacity: 1;
+    /* Nueva propiedad para la opacidad inicial */
+    transition: opacity 0.5s;
+    /* Agregar transición de opacidad */
+}
+
+
+#time-indicator {
+    color: white;
+    margin-left: 10px;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    padding: 1em;
+    width: auto;
+    height: auto;
+    position: absolute;
+}
+
+/* Media queries para hacer el reproductor de video responsive */
+@media screen and (max-width: 600px) {
+
+}
+@media screen and (max-width: 600px) {
+    #video-container {
+        width: 90%;
+        height: 35vh;
+    }
+
+    #custom-timeline-container {
+        height: 10px;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+    #video-container {
+        height: 50vh;
+        width: 70%;
+    }
+}
+
+@media (max-width:760px) {
+    #video-container {
+        width: 90%;
+    }
+}

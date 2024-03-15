@@ -1,0 +1,92 @@
+/* Estilos comunes para #myChart y #graph-container */
+#myChart,
+#graph-container {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#graph-container {
+  overflow-x: scroll;
+  position: relative;
+}
+#icon-reporte-metricas:hover{
+  animation: rotate-icon-report .1s alternate forwards ease-in;
+}
+#icon-refrescar-metricas:hover{
+  animation: rotate-icon-refresh .3s alternate forwards ease-in;
+}
+
+#myChart {
+  padding: 1em;
+}
+#graph-header {
+  position: relative;
+  height: 7vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.4em;
+}
+
+#graph-div {
+  overflow: hidden;
+  min-height: 40vh;
+  max-height: 42vh;
+  width: 100%;
+  padding: 3em;
+  box-sizing: border-box;
+}
+
+#resetButton {
+  position: relative;
+  width: 30%;
+  height: 100%;
+  border-radius: 1vw;
+  background-color: var(--pink-bg);
+  border: none;
+  font-size: 1vw;
+  color: var(--white-text);
+  /* z-index: 10; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#resetButton:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+  #linea_graph {
+    position: relative;
+    min-width: 80%;
+    left: 10%;
+  }
+}
+
+@media (max-width: 770px) {
+  #resetButton {
+    width: 50%;
+    font-size: 0.8rem;
+  }
+  #linea_graph {
+    position: relative;
+    min-width: 80%;
+    left: 0%;
+  }
+}
+
+@media (max-width: 770px) {
+  #graph-header {
+    justify-content: center;
+    align-items: center;
+  }
+
+  #resetButton {
+    width: 80%;
+    font-size: 0.8rem;
+  }
+}

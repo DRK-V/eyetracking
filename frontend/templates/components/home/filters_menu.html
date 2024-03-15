@@ -1,0 +1,67 @@
+{% load static %} {% block content %}
+
+<form id="filter_menu">
+  <header id="header_filter_menu">
+    <p id="grey-text">Filtros</p>
+    <div id="btn_close_filters_menu" aria-label="Cerrar filtros">
+        X
+    </div>
+  </header>
+  <div id="sub_main_filter_container">
+
+
+    <!-- CAMPOS METRICAS -->
+    <div class="title">Campos Metricas</div>
+    <div class="contenedor-checkbox" id="contenedor-checkbox-metricas">
+      <select id="filtroSelect_pupil_range" class="select_filter">
+        <option value="total">Rango general</option>
+        <option value="altos">Puntos Altos</option>
+        <option value="medios">Puntos Medios</option>
+        <option value="bajos">Puntos Bajos</option>
+        <option value="promedio">Promedio</option>
+      </select>
+      <select id="recordingNameSelect" class="select_filter">
+        <!-- Opciones de participantes, esto se rellena con JS al recibir la data-->
+      </select>
+      <div id="graph-header">
+        <div id="participantDropdownContainer" class="mb-4"></div>
+      </div>
+    </div>
+
+    <!-- CAMPOS INTERES -->
+    <div class="title">Campos Interes</div>
+    <div class="contenedor-checkbox">
+      <div class="checkbox-container">
+        <div class="container-select" id="container-select-ref-interes">
+          <label for="seleccionar-ref">Referencia:</label>
+          <select id="seleccionar-ref" class="select_filter"></select>
+        </div>
+
+        <div class="container-select">
+          <label for="seleccionar-genero">Seleccionar Género:</label>
+          <select id="seleccionar-genero" class="select_filter">
+            <option value="todos">Todos</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <!-- CAMPOS IMPACTO -->
+    <div class="title">Campos impacto</div>
+    <div class="contenedor-checkbox">
+      <div class="checkbox-container">
+        <div class="container-select" id="container-select-ref-impacto">
+          <label for="seleccionar-ref-impacto">Referencia:</label>
+          <select id="seleccionar-ref-impacto" class="select_filter"></select>
+        </div>
+        <div class="container-select">
+          <label for="seleccionar-genero-impacto">Seleccionar Género:</label>
+          <select id="seleccionar-genero-impacto" class="select_filter">
+            <option value="todos">Todos</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,112 @@
+/* estilos de mensaje al no encontrar reportes */
+#container-no-data-report {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 50vh;
+}
+
+#container-no-data-report>h1 {
+  width: 100%;
+  height: 10%;
+  font-size: 1em;
+  text-align: center;
+}
+
+.container_img_no_report {
+  width: 60%;
+  height: auto;
+  min-height: 90%;
+  background-image: url('../../../img/icon_no_report.png');
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+/* Estilo para el contenedor de reportes */
+#modal_reportes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  /* padding-top: 6em; */
+}
+
+#cabecera-reporte {
+  position: relative;
+  top: 0;
+  width: 100vw;
+  height: 10vh;
+  /* background-color: gray; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#container-imprimir {
+  width: 5%;
+  height: 80%;
+}
+
+#botonImprimir {
+  width: 100%;
+  height: 100%;
+  background-image: url("../../../img/imprimir.png");
+  background-position: center;
+  background-size: 70%;
+  background-repeat: no-repeat;
+}
+
+/* Estilo para cada reporte */
+.reporte-item {
+  display: flex;
+  flex-direction: column;
+  /* Organiza elementos en columna */
+  margin-bottom: 80px;
+  /* Espacio entre cada reporte */
+}
+
+.reporte-item>button {
+  order: 1;
+}
+
+.reporte-item>div {
+  order: 2;
+}
+
+.reporte-item>h1 {
+  order: 3;
+}
+
+@page {
+  @bottom-center {
+    content: element(footer);
+  }
+}
+
+/* Estilo para el título */
+.reporte-item .titulo {
+  text-align: center;
+}
+
+/* Estilo para el contenido dentro de cada reporte */
+.reporte-item .contenido {
+  display: flex;
+  /* Organiza elementos en fila */
+}
+
+/* Estilo para el lado izquierdo (gráfico) de cada reporte */
+.reporte-item .grafico {
+  margin-right: 20px;
+  /* Espacio entre el gráfico y el resumen */
+}
+
+/* Estilo específico para la imagen del gráfico */
+#modal_reportes img {
+  max-width: 100%;
+  /* La imagen se ajusta al ancho del contenedor */
+  height: auto;
+  /* Altura automática para mantener la proporción */
+}

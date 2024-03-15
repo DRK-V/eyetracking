@@ -1,0 +1,187 @@
+{% load static %} {% block content %}
+<nav aria-label="alternative nav" id="menu_izquierdo">
+  <div class="menu shadow-xl h-20 fixed bottom-0 mt-12 md:relative md:h-screen z-10 w-full md:w-48 content-center">
+    <div class="md:mt-12 md:w-48 md:fixed md:left-0 md:top-0 content-center md:content-start text-left justify-between">
+      <ul class="list-reset flex flex-row md:flex-col pt-0 md:py-3 px-1 md:px-2 text-center md:text-left">
+        {% if gestion.metricas and gestion.impacto and gestion.interes %}
+        <li class="mr-3 flex-1" id="graficos">
+          <a href="#" data-target="graficos"
+            class="menu-option block py-1 md:py-3 pl-1 align-middle white_text no-underline hover:white_text border-b-2 border-gray-800 flex items-center">
+            <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
+              xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
+              xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+              xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="24" height="24"
+              viewBox="0 0 6.3499999 6.3500002" version="1.1" id="svg8"
+              inkscape:version="0.92.4 (5da689c313, 2019-01-14)" sodipodi:docname="22. Chart Graph.svg">
+              <defs id="defs2">
+                <pattern y="0" x="0" height="6" width="6" patternUnits="userSpaceOnUse" id="EMFhbasepattern" />
+                <pattern y="0" x="0" height="6" width="6" patternUnits="userSpaceOnUse" id="EMFhbasepattern-3" />
+                <pattern y="0" x="0" height="6" width="6" patternUnits="userSpaceOnUse" id="EMFhbasepattern-2" />
+                <pattern y="0" x="0" height="6" width="6" patternUnits="userSpaceOnUse" id="EMFhbasepattern-1" />
+                <pattern y="0" x="0" height="6" width="6" patternUnits="userSpaceOnUse" id="EMFhbasepattern-5" />
+              </defs>
+              <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0"
+                inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="11.313708" inkscape:cx="3.7036545"
+                inkscape:cy="15.16386" inkscape:document-units="px" inkscape:current-layer="layer1" showgrid="false"
+                units="px" inkscape:window-width="1280" inkscape:window-height="658" inkscape:window-x="-8"
+                inkscape:window-y="-8" inkscape:window-maximized="1" showguides="true" guidecolor="#af0000"
+                guideopacity="0.49803922" guidehicolor="#ff4b4b" guidehiopacity="0.49803922"
+                inkscape:snap-global="false">
+                <inkscape:grid type="xygrid" id="grid815" empspacing="1" originx="0" originy="0" spacingx="0"
+                  spacingy="0" snapvisiblegridlinesonly="true" visible="true" enabled="true" dotted="false" />
+              </sodipodi:namedview>
+              <metadata id="metadata5">
+                <rdf:RDF>
+                  <cc:Work rdf:about="">
+                    <dc:format>image/svg+xml</dc:format>
+                    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                    <dc:title />
+                  </cc:Work>
+                </rdf:RDF>
+              </metadata>
+              <g inkscape:label="Guides" inkscape:groupmode="layer" id="layer1" transform="translate(0,-290.64999)">
+                <rect style="
+                    opacity: 1;
+                    fill: #ff4f4f;
+                    fill-opacity: 1;
+                    fill-rule: nonzero;
+                    stroke: none;
+                    stroke-width: 0.26458335;
+                    stroke-linecap: round;
+                    stroke-linejoin: miter;
+                    stroke-miterlimit: 4;
+                    stroke-dasharray: none;
+                    stroke-dashoffset: 1.79999995;
+                    stroke-opacity: 1;
+                    paint-order: normal;
+                  " id="rect1018" width="1.1375024" height="1.2759935" x="0.9124797" y="294.56543" ry="0.13229167"
+                  rx="0.13229167" />
+                <rect rx="0.13229167" ry="0.13229167" y="293.62143" x="2.1041789" height="2.2200289" width="1.1375024"
+                  id="rect1021" style="
+                    opacity: 1;
+                    fill: #ff4f4f;
+                    fill-opacity: 1;
+                    fill-rule: nonzero;
+                    stroke: none;
+                    stroke-width: 0.26458335;
+                    stroke-linecap: round;
+                    stroke-linejoin: miter;
+                    stroke-miterlimit: 4;
+                    stroke-dasharray: none;
+                    stroke-dashoffset: 1.79999995;
+                    stroke-opacity: 1;
+                    paint-order: normal;
+                  " />
+                <rect style="
+                    opacity: 1;
+                    fill: #ff4f4f;
+                    fill-opacity: 1;
+                    fill-rule: nonzero;
+                    stroke: none;
+                    stroke-width: 0.26458335;
+                    stroke-linecap: round;
+                    stroke-linejoin: miter;
+                    stroke-miterlimit: 4;
+                    stroke-dasharray: none;
+                    stroke-dashoffset: 1.79999995;
+                    stroke-opacity: 1;
+                    paint-order: normal;
+                  " id="rect1023" width="0.96933711" height="3.1139381" x="3.2862177" y="292.72751" ry="0.13229167"
+                  rx="0.13229167" />
+                <rect rx="0.13229167" ry="0.13229167" y="291.80853" x="4.3000178" height="4.0329103" width="1.1375024"
+                  id="rect1025" style="
+                    opacity: 1;
+                    fill: #ff4f4f;
+                    fill-opacity: 1;
+                    fill-rule: nonzero;
+                    stroke: none;
+                    stroke-width: 0.26458335;
+                    stroke-linecap: round;
+                    stroke-linejoin: miter;
+                    stroke-miterlimit: 4;
+                    stroke-dasharray: none;
+                    stroke-dashoffset: 1.79999995;
+                    stroke-opacity: 1;
+                    paint-order: normal;
+                  " />
+              </g>
+            </svg>
+            <span
+              class="pb-1 md:pb-0 text-xs md:text-base white_text md:white_text block md:inline-block">Graficos</span>
+          </a>
+        </li>
+        <li class="mr-3 flex-1" id="videos">
+          <a href="#" data-target="videos"
+            class="menu-option block py-1 md:py-3 pl-1 align-middle white_text no-underline hover:white_text border-b-2 border-gray-800 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+              <path
+                d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                fill="#ff4f4f" />
+            </svg>
+            <span class="pb-1 md:pb-0 text-xs md:text-base white_text md:white_text block md:inline-block">Videos</span>
+          </a>
+        </li>
+        {% endif %}
+
+        <li class="mr-3 flex-1" id="cargar_archivos">
+          <a href="#" data-target="cargar_archivos"
+            class="menu-option block py-1 md:py-3 pl-1 align-middle white_text no-underline hover:white_text border-b-2 border-gray-800 flex items-center">
+            <svg width="24px" height="16px" viewBox="0 0 24 16" version="1.1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink">
+              <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+              <title>cloud_upload</title>
+              <desc>Created with Sketch.</desc>
+              <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="Outlined" transform="translate(-270.000000, -2284.000000)">
+                  <g id="File" transform="translate(100.000000, 2226.000000)">
+                    <g id="Outlined-/-File-/-cloud_upload" transform="translate(170.000000, 54.000000)">
+                      <g>
+                        <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon>
+                        <path
+                          d="M19.35,10.04 C18.67,6.59 15.64,4 12,4 C9.11,4 6.6,5.64 5.35,8.04 C2.34,8.36 0,10.91 0,14 C0,17.31 2.69,20 6,20 L19,20 C21.76,20 24,17.76 24,15 C24,12.36 21.95,10.22 19.35,10.04 Z M19,18 L6,18 C3.79,18 2,16.21 2,14 C2,11.95 3.53,10.24 5.56,10.03 L6.63,9.92 L7.13,8.97 C8.08,7.14 9.94,6 12,6 C14.62,6 16.88,7.86 17.39,10.43 L17.69,11.93 L19.22,12.04 C20.78,12.14 22,13.45 22,15 C22,16.65 20.65,18 19,18 Z M8,13 L10.55,13 L10.55,16 L13.45,16 L13.45,13 L16,13 L12,9 L8,13 Z"
+                          id="🔹-Icon-Color" fill="#ff4f4f"></path>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+            <span class="pb-1 md:pb-0 text-xs md:text-base white_text md:white_text block md:inline-block">Cargar
+              archivos</span>
+          </a>
+        </li>
+        {% if gestion.metricas and gestion.impacto and gestion.interes %}
+
+        <li class="mr-3 flex-1 white_text" id="reportes">
+          <a href="#" data-target="reportes"
+            class="menu-option block py-1 md:py-3 pl-1 align-middle white_text no-underline hover:white_text border-b-2 border-gray-800 flex items-center">
+            <svg height="24" width="24" class="icon" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" fill="#ff4f4f" id="Layer_1" x="0px" y="0px"
+              viewBox="0 0 512 512" xml:space="preserve">
+              <g id="XMLID_74_">
+                <path id="XMLID_170_" class="st0" d="M355.9 128h52L345 67.2v51.3c0 5 5.1 9.5 10.9 9.5z" fill="none" />
+                <path id="XMLID_174_" class="st0"
+                  d="M355.9 168c-28.1 0-50.9-22.2-50.9-49.6V40.7l-216.6-.6c-5.5 0-10.4 4.7-10.4 10v411.8c0 5.2 5.3 10.2 10.9 10.2h339c5.7 0 9.1-5.2 9.1-10.2V168h-81.1zM320 247c11 0 20 9 20 20s-9 20-20 20H145c-11 0-20-9-20-20s9-20 20-20h175zm-176-80h116c11 0 20 9 20 20s-9 20-20 20H144c-11 0-20-9-20-20s9-20 20-20zm226 200H145c-11 0-20-9-20-20s9-20 20-20h225c11 0 20 9 20 20s-9 20-20 20z"
+                  fill="none" />
+                <path id="XMLID_488_"
+                  d="M467.2 129.8L345.5 12C338.1 4.8 328 .7 317.6.7L88.4.1C60.6.1 38 22.5 38 50.1v411.8C38 489 61.3 512 88.9 512h339c27.1 0 49.1-22.5 49.1-50.2V153.7c0-9.3-3.5-17.8-9.8-23.9zM345 67.2l62.9 60.8h-52c-5.8 0-10.9-4.5-10.9-9.6V67.2zM427.9 472h-339c-5.6 0-10.9-4.9-10.9-10.2V50.1c0-5.3 4.9-10 10.4-10l216.6.6v77.7c0 27.3 22.8 49.6 50.9 49.6H437v293.8c0 5-3.4 10.2-9.1 10.2z" />
+                <path id="XMLID_490_"
+                  d="M125 267c0 11 9 20 20 20h175c11 0 20-9 20-20s-9-20-20-20H145c-11 0-20 9-20 20z" />
+                <path id="XMLID_491_" d="M144 207h116c11 0 20-9 20-20s-9-20-20-20H144c-11 0-20 9-20 20s9 20 20 20z" />
+                <path id="XMLID_492_" d="M370 327H145c-11 0-20 9-20 20s9 20 20 20h225c11 0 20-9 20-20s-9-20-20-20z" />
+              </g>
+            </svg>
+            <span
+              class="pb-1 md:pb-0 text-xs md:text-base white_text md:white_text block md:inline-block white_text">Reportes</span>
+          </a>
+        </li>
+        {% endif %}
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Script JavaScript para mostrar/ocultar componentes -->
+
+{% endblock %}

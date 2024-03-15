@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  web:
+    build: ./backend
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./backend:/code
+      - ./frontend:/frontend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DJANGO_ENV=local
+      - DB_HOST=db
+  db:
+    image: mariadb
+    environment:
+      MYSQL_DATABASE: "eyetracking_alpha"
+      MYSQL_USER: "root"
+      MYSQL_PASSWORD: "admin"
+      MYSQL_ROOT_PASSWORD: "admin"
+    ports:
+      - "3306:3306"

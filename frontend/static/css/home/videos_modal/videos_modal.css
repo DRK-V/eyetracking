@@ -1,0 +1,247 @@
+/* #blur_modal_videos {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.81);
+    z-index: 200;
+    display: none;
+} */
+
+#videos_modal {
+    display: none;
+    width: 100%;
+    height: 103%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#header_modal_videos {
+    width: 100%;
+    height: 16vh;
+    background-color: rgb(49, 48, 48);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#info_section {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    color: var(--white-text);
+}
+
+#close_modal_videos {
+    height: 100%;
+    min-width: 10%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: start;
+    padding-top: 2.5em;
+    width: auto;
+}
+
+#close_modal_videos>svg {
+    max-width: 20%;
+    max-height: 30%;
+    cursor: pointer;
+
+}
+
+#info_section>p {
+    width: 100%;
+    min-height: 25%;
+    height: auto;
+}
+
+#date_project_modal_videos {
+    color: var(--grey-text-input);
+}
+
+/* estilos del input de buscar */
+
+#main_input_container {
+    min-height: 20vh;
+    width: 80%;
+    margin-top: 1em;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#input_container {
+    width: 45%;
+    height: 45%;
+    background-color: var(--darkness-grey);
+    position: relative;
+    border-radius: .5em;
+    color: var(--white-text);
+    overflow: hidden;
+}
+
+#input_container input:focus,
+#input_container input:hover {
+    /* Establecer el color de fondo cuando el input está enfocado o se pasa el ratón sobre él */
+    background-color: var(--darkness-grey);
+}
+
+#search_video_input {
+    background-color: var(--darkness-grey);
+    width: 90%;
+    height: 100%;
+    padding: 1em;
+    box-sizing: border-box;
+    border-radius: 5px;
+    outline: none;
+}
+
+#input_container>svg {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    fill: #333;
+    /* Color del icono SVG */
+    width: 3em;
+    /* Ancho del icono SVG */
+    height: 2em;
+    cursor: pointer;
+}
+
+/* estilos de panel de videos */
+#main_project_videos_panel {
+    width: 90%;
+    height: auto;
+    min-height: 60vh;
+    /* background-color: grey; */
+    overflow: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--white-text) var(--darkness-grey);
+}
+
+/* Estilos específicos para navegadores webkit (Chrome, Safari, Edge) */
+#main_project_videos_panel::-webkit-scrollbar {
+    width: 5px;
+    /* Ancho del scrollbar */
+}
+
+#main_project_videos_panel::-webkit-scrollbar-thumb {
+    background-color: var(--pink-bg);
+    /* Color del thumb (barra deslizante) */
+}
+
+#main_project_videos_panel::-webkit-scrollbar-track {
+    background-color: var(--darkness-grey);
+    /* Color del track (fondo del scrollbar) */
+}
+
+#project_videos_panel {
+    min-height: 30vh;
+    height: auto;
+    /* background-color: red; */
+    gap: 1em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.main_video_container {
+    width: 22%;
+    min-height: 23vh;
+    max-height: 23vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;  /* Alinea el contenido en la parte inferior */
+    align-items: center;
+    background-color: black;
+    overflow: hidden;
+    position: relative;  /* Agrega posición relativa al contenedor padre */
+    border-radius:.4rem;
+}
+
+.preview_video {
+    width: 100%;
+    height: 90%;  /* Reducido para dejar espacio para el nombre del video */
+    object-fit: cover;
+}
+
+.name_associated_video {
+    width: 100%;
+    height: 25%;  /* Asigna el 10% restante para el nombre del video */
+    color: var(--white-text);
+    display: flex;
+    justify-content: center;  /* Centra el texto horizontalmente */
+    align-items: center;  /* Centra el texto verticalmente */
+    position: absolute;
+    bottom: 0;  /* Coloca el nombre en la parte inferior del contenedor */
+    background-color: rgba(0, 0, 0, 0.53);
+}
+
+
+.save-video-path {
+    top: 0;
+    right: 0;
+    position: absolute;
+    background-color: #3498db; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    padding: 8px 12px; /* Espaciado interno del botón */
+    border: none; /* Elimina el borde del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    width: 4em;
+    height: 4em;
+}
+
+.save-video-path:hover {
+    background-color: #2980b9; /* Cambia el color de fondo al pasar sobre el botón */
+}
+.text_banner_not_found{
+    width: 100%;
+    text-align: center;
+    color: var(--darkness-grey);
+}
+#not-found-videos{
+    max-width: 20vw;
+}
+
+@media (max-width:1000px) {
+    .main_video_container{
+        width: 45%;
+        max-height:none ;
+    }
+    #input_container{
+        width: 64%;
+    }
+}
+@media (max-width:670px) {
+    #main_input_container{
+        justify-content: center;
+    }
+    #input_container{
+        width: 75%;
+    }
+}
+@media (max-width:530px) {
+    .main_video_container{
+        min-height: 12vh;
+        justify-content: none;
+        margin-top: .5em;
+    }
+    #main_project_videos_panel{
+        width: 100%;
+    }
+    #input_container{
+        width: 90%;
+    }
+    .name_associated_video{
+        font-size: .6em;
+    }
+}

@@ -1,0 +1,95 @@
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/home/videos_modal/videos_modal.css' %}">
+
+<div class="class="w-full h-full flex flex-wrap items-start justify-start" id="videos_modal">
+    <header id="header_modal_videos">
+        <div id="info_section"><!--esta seccion es la que contiene nombre proyecto y fecha proyecto-->
+            <p id="title_project_modal_videos">
+                Videos cargados - <span id="project_name_modal_videos">{{ proyecto_info.0 }}</span>
+            </p>
+            <p id="date_project_modal_videos">
+                Fecha creación proyecto - {{ proyecto_info.1|date:"j/n/Y" }}
+            </p>
+        </div>
+        <div id="close_modal_videos" style="display: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="45.82" height="45.82" viewBox="0 0 45.82 45.82">
+                <defs>
+                    <style>
+                        .cls-1 {
+                            fill: #FF4F4F
+                        }
+
+                        .cls-2 {
+                            fill: #FFF
+                        }
+                    </style>
+                </defs>
+                <title>Close</title>
+                <g id="Layer_2" data-name="Layer 2">
+                    <g id="Close">
+                        <path class="cls-1"
+                            d="M45.09 45.09a2.52 2.52 0 0 1-3.54 0L28.91 32.45l-1.77-1.77a2.5 2.5 0 0 1 0-3.54 2.5 2.5 0 0 1 3.54 0l1.77 1.77 12.64 12.64a2.52 2.52 0 0 1 0 3.54z" />
+                        <path class="cls-2"
+                            d="M45.09.73a2.52 2.52 0 0 0-3.54 0L22.91 19.37 4.27.73a2.51 2.51 0 0 0-3.54 0 2.52 2.52 0 0 0 0 3.54l18.64 18.64L.73 41.55a2.5 2.5 0 0 0 3.54 3.54L45.09 4.27a2.51 2.51 0 0 0 0-3.54z" />
+                    </g>
+                </g>
+            </svg>
+        </div>
+    </header>
+    <!-- buscador videos -->
+    <div id="main_input_container">
+        <div id="input_container">
+            <input type="text" id="search_video_input" placeholder="Buscar por nombre de participantes">
+            <svg xmlns="http://www.w3.org/2000/svg" width="49.87" height="49.88" viewBox="0 0 49.87 49.88">
+                <defs>
+                    <style>
+                        .cls-1 {
+                            fill: #FFF
+                        }
+
+                        .cls-2 {
+                            fill: #FF4F4F
+                        }
+                    </style>
+                </defs>
+                <title>Search</title>
+                <g id="Layer_2" data-name="Layer 2">
+                    <g id="Search">
+                        <path class="cls-1"
+                            d="M49.14 45.61L38.58 35.05a2.77 2.77 0 0 0-3.91 0 17.49 17.49 0 1 1 4.92-16.35 17.7 17.7 0 0 1-.18 8.3 2.5 2.5 0 1 0 4.84 1.29 22.54 22.54 0 1 0-7.72 11.82l9.07 9.06a2.5 2.5 0 0 0 3.54 0 2.5 2.5 0 0 0 0-3.56z" />
+                        <path class="cls-2"
+                            d="M30 30a2.46 2.46 0 0 0-3-.27 8.52 8.52 0 0 1-8.66.17 2.41 2.41 0 0 0-2.87.33l-.15.14a2.41 2.41 0 0 0 .42 3.81 13.55 13.55 0 0 0 14-.28 2.41 2.41 0 0 0 .41-3.74z" />
+                    </g>
+                </g>
+            </svg>
+        </div>
+    </div>
+
+    <!-- contenedor que muestra las previsualizaciones del video -->
+    <section id="main_project_videos_panel">
+        <!--este contenedor se creo para hacer un scroll infinito sin que se vea mal-->
+        <div id="project_videos_panel"><!--a este div se le aplcara los estilos del scroll-->
+            <!-- estilos para la previsualizacion de videos -->
+            {% for ruta_video in rutas_videos %}
+            <div class="main_video_container">
+                <video class="preview_video" preload="metadata" controlslist="nodownload" muted>
+                    <source src="{{ ruta_video.ruta }}" type="video/mp4" class="url_videos">
+                    Tu navegador no soporta el tag de video.
+                </video>
+                <div class="name_associated_video">
+                    {{ ruta_video.nombre }}
+                    <!-- Botón para guardar la ruta del video en un atributo de datos -->
+                </div>
+            </div>
+            {% endfor %}
+            {% if not rutas_videos %}
+            <div class="banner_not_found">
+                <p class="text_banner_not_found">No se encontraron videos para este proyecto</p>
+                <img id="not-found-videos" src="{% static 'img/not_found.png' %}" alt="" srcset="">
+            </div>
+            {% endif %}
+        </div>
+    </section>
+</div>
+{% endblock %}
